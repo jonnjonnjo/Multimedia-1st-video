@@ -68,16 +68,18 @@ class convolution(Scene):
 
         fchart = BarChart(
             values = [1,2,3],
-            y_range = [0,40,10],
-            bar_names=[0,1,2]
+            y_range = [0,10,5],
+            bar_names=[0,1,2],
+            bar_colors=[WHITE]
         ).scale(0.5).to_edge(RIGHT,buff=0.5)
 
         fchartname = Text("The number of new well that\nwe opened at time -x").next_to(fchart,UP).scale(0.4).to_edge(RIGHT,buff=0.5)
 
         gchart = BarChart(
             values = [10, 3,2],
-            y_range= [0,40,10],
-            bar_names=[0,1,2]
+            y_range= [0,15,5],
+            bar_names=[0,1,2],
+            bar_colors=[WHITE]
         ).scale(0.5).to_edge(LEFT,buff=0.5)
 
         gchartname = Text("The number of oil that a well produce\nat time - x since it's been built").next_to(fchart,UP).scale(0.4).to_edge(LEFT,buff=0.5)
@@ -85,7 +87,8 @@ class convolution(Scene):
         totchart = BarChart(
             values = [10,23,38],
             y_range = [0,40,10],
-            bar_names=[0,1,2]
+            bar_names=[0,1,2],
+            bar_colors=[WHITE]
         ).to_edge(UP).scale(0.5)
         totchartname = Text("Total of oil production at i-th day").next_to(totchart,UP).scale(0.4)
 
@@ -99,9 +102,15 @@ class convolution(Scene):
 
 
 
-        self.play(Indicate(gchart.submobjects[0][0]),run_time=2,color=RED)
+        self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][0],color=RED),Indicate(totchart.submobjects[0][0],color=GREEN),run_time=2)
+        self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][1],color=RED),Indicate(gchart.submobjects[0][1],color=ORANGE),Indicate(fchart.submobjects[0][0],color=ORANGE),Indicate(totchart.submobjects[0][1],color=GREEN),run_time=2)
+        self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][2],color=RED),
+                  Indicate(gchart.submobjects[0][1],color=ORANGE),Indicate(fchart.submobjects[0][1],color=ORANGE),
+                  Indicate(gchart.submobjects[0][2],color=YELLOW),Indicate(fchart.submobjects[0][0],color=YELLOW),Indicate(totchart.submobjects[0][2],color=GREEN),run_time=2)
         self.wait(2)
 
+        self.play(FadeOut(gchart,gchartname,fchart,fchartname,totchart,totchartname),shift=DOWN * 2, scale=1.5)
+        self.wait(1)
         ## start to indicate each
 
 
