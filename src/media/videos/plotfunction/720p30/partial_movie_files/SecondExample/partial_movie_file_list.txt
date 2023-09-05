@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/College/5th Semester/II3150 - Multimedia System/Multimedia-1st-video/src/media/videos/plotfunction/720p30/partial_movie_files/SecondExample/274514146_3666797150_223132457.mp4'
+file 'file:D:/College/5th Semester/II3150 - Multimedia System/Multimedia-1st-video/src/media/videos/plotfunction/720p30/partial_movie_files/SecondExample/2789044632_1579540578_886614335.mp4'
+file 'file:D:/College/5th Semester/II3150 - Multimedia System/Multimedia-1st-video/src/media/videos/plotfunction/720p30/partial_movie_files/SecondExample/2789044632_190800790_910645652.mp4'
