@@ -11,24 +11,24 @@ class convolution(Scene):
         equation.next_to(definition,DOWN*2)
         self.play(Create(definition))
         self.play(Create(equation))
-        self.wait(3)
+        self.wait(7)
 
         waittext = Paragraph("I'm not going to prove the math.\nI'll just give you the \nintuition about what is actually a convolution",alignment='center').scale(0.6)
         waittext.next_to(equation,DOWN*4)
         self.play(Create(waittext))
-        self.wait(3)
+        self.wait(7)
 
         # flush the screen
         self.play(FadeOut(title,definition,waittext,equation,shift=DOWN * 2, scale=1.5))
 
         self.wait(1)
 
-        oil = Paragraph("Let assume that we are a oil company and we have to function\nf(x) as the number of new well that we opened at time -x and\ng(x) as the number of oil that a well produce\n at x-th time since it's been built ",alignment='center').scale(0.4)
+        oil = Paragraph("Let assume that we are an oil company and we have function\nf(x) as the number of new well that we opened at time -x and\ng(x) as the number of oil that a well produce\n at x-th time since it's been built ",alignment='center').scale(0.4)
         self.play(Create(oil))
-        self.wait(4)
-        oiltransform = Paragraph("f(x) as the number of new well that we opened at time -x\n g(x) as the number of oil that a well produce at time - x since it's been built\n and also assuming that the g(x) is same for all well",alignment='center').scale(0.4)
+        self.wait(12)
+        oiltransform = Paragraph("f(x) as the number of new oil well that opened at time -x\n g(x) as the number of oil-well that an oil-well produce at time - x since it's been built\n and also assuming that the g(x) is same for all well",alignment='center').scale(0.4)
         self.play(Transform(oil,oiltransform.to_edge(UP)))
-        self.wait(1)
+        self.wait(7)
 
         # do some simulation at 0, 1, and 2
         t1 = Tex("At time 0").scale(0.6)
@@ -38,6 +38,7 @@ class convolution(Scene):
 
         self.play(Create(t1))
         self.play(Create(t1exp))
+        
 
         t2 = Tex("At time 1").scale(0.6)
         t2.next_to(t1exp,DOWN)
@@ -47,16 +48,12 @@ class convolution(Scene):
         self.play(Create(t2))
         self.play(Create(t2exp))
 
-        self.wait(1)
 
         t3 = Tex("At time 3").scale(0.6)
         t3.next_to(t2exp,DOWN)
         t3exp = MathTex(r"total \ oil = f(2) \cdot g(0) + f(1) \cdot g(1) + f(0) \cdot g(2)").scale(0.6)
         t3exp.next_to(t3,DOWN) 
         self.play(Create(t3))
-        self.play(Create(t3exp))
-
-        self.wait(1)
 
         t4 = Text("Let visualize it so you can see the whole picture").scale(0.8)
         t4.next_to(t3,DOWN*4)
@@ -102,12 +99,12 @@ class convolution(Scene):
 
 
 
-        self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][0],color=RED),Indicate(totchart.submobjects[0][0],color=GREEN),run_time=2)
-        self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][1],color=RED),Indicate(gchart.submobjects[0][1],color=ORANGE),Indicate(fchart.submobjects[0][0],color=ORANGE),Indicate(totchart.submobjects[0][1],color=GREEN),run_time=2)
+        self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][0],color=RED),Indicate(totchart.submobjects[0][0],color=GREEN),run_time=12)
+        self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][1],color=RED),Indicate(gchart.submobjects[0][1],color=ORANGE),Indicate(fchart.submobjects[0][0],color=ORANGE),Indicate(totchart.submobjects[0][1],color=GREEN),run_time=12)
         self.play(Indicate(gchart.submobjects[0][0],color=RED),Indicate(fchart.submobjects[0][2],color=RED),
                   Indicate(gchart.submobjects[0][1],color=ORANGE),Indicate(fchart.submobjects[0][1],color=ORANGE),
-                  Indicate(gchart.submobjects[0][2],color=YELLOW),Indicate(fchart.submobjects[0][0],color=YELLOW),Indicate(totchart.submobjects[0][2],color=GREEN),run_time=2)
-        self.wait(2)
+                  Indicate(gchart.submobjects[0][2],color=YELLOW),Indicate(fchart.submobjects[0][0],color=YELLOW),Indicate(totchart.submobjects[0][2],color=GREEN),run_time=12)
+        self.wait(10)
 
         self.play(FadeOut(gchart,gchartname,fchart,fchartname,totchart,totchartname),shift=DOWN * 2, scale=1.5)
         self.wait(1)

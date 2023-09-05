@@ -7,11 +7,11 @@ class nyquist(Scene):
         expl = Paragraph("In signal processing, the Nyquist rate, named after Harry \n\nNyquist, is a value (in units of samples per second or hertz, Hz)\n\n equal to twice the highest frequency (bandwidth) of a given\n\nfunction or signal.",alignment='center').scale(0.5)
         expl.next_to(title,DOWN*6)
         self.play(Create(expl))
-        self.wait(2)
+        self.wait(10)
         prf = Paragraph("I'm not going too deeply about the math.\n\nI'll prove it to you by an example",alignment='center').scale(0.5)
         prf.next_to(expl,DOWN*3)
         self.play(Create(prf))
-        self.wait(3)
+        self.wait(5)
         self.play(FadeOut(title,expl,prf,shift=DOWN * 2, scale=1.5))
         self.wait(1)
 
@@ -30,6 +30,7 @@ class nyquist(Scene):
         newtitle = newtitle.to_edge(UP)
         newfn.next_to(newtitle,DOWN)
         self.play(Transform(title,newtitle),run_time=1.5)
+        self.wait(2)
         self.play(Transform(fn,newfn))
 
         vgroup2 = VGroup()
@@ -48,14 +49,14 @@ class nyquist(Scene):
         self.play(Create(vgroup4))
         self.wait(1)
         self.play(FadeOut(curve,shift=DOWN * 2, scale=1.5))
-        self.wait(3)
+        self.wait(5)
 
         # 
 
         self.play(Indicate(vgroup2))
         self.wait(2)
         self.play(Indicate(vgroup4))
-        self.wait(3)
+        self.wait(7)
 
         # flush all of them
         
